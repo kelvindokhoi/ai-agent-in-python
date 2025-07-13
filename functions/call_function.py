@@ -1,4 +1,3 @@
-import os
 from google.genai import types
 from functions.get_file_content import get_file_content
 from functions.get_files_info import get_files_info
@@ -24,7 +23,7 @@ def call_function(function_call_part, verbose=False)->types.Content:
                 )
             ],
         )
-    function_result = keywords[function_name](keywords["working_directory"],**function_call_part.args)
+    function_result = keywords[function_name](working_directory=keywords["working_directory"],**function_call_part.args)
     return types.Content(
         role="tool",
         parts=[
