@@ -4,10 +4,16 @@ from functions.get_files_info import get_files_info
 from functions.write_file import write_file
 from functions.run_python import run_python_file
 from functions.config import *
+from functions.create_folder import create_folder
 
 
 def call_function(function_call_part, verbose=False)->types.Content:
-    keywords = {"working_directory":"./calculator","get_file_content":get_file_content,"get_files_info":get_files_info,"write_file":write_file,"run_python_file":run_python_file}
+    keywords = {"working_directory":working_directory,
+                "get_file_content":get_file_content,
+                "get_files_info":get_files_info,
+                "write_file":write_file,
+                "run_python_file":run_python_file,
+                "create_folder":create_folder}
     if verbose:
         print(f"Calling function: {function_call_part.name}({function_call_part.args})")
     else:

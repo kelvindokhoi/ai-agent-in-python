@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 import sys
 from functions.config import *
-from functions.get_files_info import *
+from functions.schemas import *
 from functions.call_function import call_function
 
 load_dotenv()
@@ -40,7 +40,6 @@ def main():
                         result = call_function(function_call_part,verbose)
                         messages.append(result)
                         function_response = result.parts[0].function_response.response # type: ignore
-                        # print(f"-> {function_response}")
                 else:
                     print(f"Final response: {response.text}")
                     break
