@@ -33,8 +33,8 @@ def main():
                         tools=[available_functions], system_instruction=system_prompt
                     )
                 )
-                for candidate in response.candidates:
-                    messages.append(candidate.content)
+                for candidate in response.candidates: # type: ignore
+                    messages.append(candidate.content) # type: ignore
                 if response.function_calls:
                     for function_call_part in response.function_calls:
                         result = call_function(function_call_part,verbose)
